@@ -1,7 +1,7 @@
 import React from 'react'
 import './assets/font/font.css'
 import {Layout} from './layouts'
-import {Screen} from './screen/Screen'
+import {Screen} from './screen'
 import {ViewportProvider} from './providers'
 import { GlobalStyle } from './assets/globalStyles/GlobalStyle'
 import {ThemeProvider} from 'styled-components'
@@ -13,7 +13,7 @@ function App() {
       <GlobalStyle />
       <ThemeProvider theme={theme.default}>
         <Layout>
-          <Screen/>
+          <Screen />
         </Layout>
       </ThemeProvider>
     </ViewportProvider>

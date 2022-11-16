@@ -1,0 +1,1 @@
+export const getDoubleZeroTime = (time: number): string => {  if (time) {    if (String(time).length > 1) {      return String(time)    } else {      return `0${String(time)}`    }  } else {    return '00'  }}
