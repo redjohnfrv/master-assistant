@@ -1,0 +1,1 @@
+export const render = (component: JSX.Element) => {  return component}
