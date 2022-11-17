@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import {useState} from 'react'
 import './assets/font/font.css'
 import {Screen, Layout} from './screen'
 import {ViewportProvider} from './providers'
