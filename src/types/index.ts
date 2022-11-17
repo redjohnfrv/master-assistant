@@ -1,0 +1,1 @@
+export type RenderVariant = 'list' | 'timer' | 'dice' | 'notion'

@@ -1,1 +1,1 @@
-import React from 'react'export const Screen = () => {  return <div>Hello!</div>}
+import React from 'react'import styled from 'styled-components'import {Content} from '../components'export const Screen = () => {  return (    <Root>      <Content />    </Root>  )}const Root = styled.section`  display: flex;  flex: 1;  justify-content: center;  align-items: center;  width: 100%;    & ul {    display: flex;    flex-direction: column;    gap: 24px;    text-align: center;  }`
