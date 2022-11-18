@@ -1,14 +1,14 @@
 import {useState} from 'react'
 import './assets/font/font.css'
-import {Screen, Layout} from './screen'
+import {Layout, Screen} from './screen'
 import {ViewportProvider} from './providers'
-import { GlobalStyle } from './assets/globalStyles/GlobalStyle'
+import {GlobalStyle} from './assets/globalStyles/GlobalStyle'
 import {ThemeProvider} from 'styled-components'
 import {theme} from './assets/theme'
 import {useForm} from 'react-hook-form'
 
 function App() {
-  const { register, handleSubmit } = useForm({
+  const {register, handleSubmit} = useForm({
     defaultValues: {
       timestamp: 0,
     }
@@ -21,7 +21,7 @@ function App() {
 
   return (
     <ViewportProvider>
-      <GlobalStyle />
+      <GlobalStyle/>
       <ThemeProvider theme={theme.default}>
         <Layout timestamp={timestamp}>
           <Screen register={register} onTimerSubmit={onTimerSubmit}/>

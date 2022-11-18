@@ -30,7 +30,7 @@ export const Content = (props: Props) => {
 
   const [el, setEl] = useState<JSX.Element>(<List onClick={onSetRenderElement}/>)
 
-  return render (
+  return render(
     <ContentLayout onSetRenderElement={onSetRenderElement}>
       {el}
     </ContentLayout>
