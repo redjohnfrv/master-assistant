@@ -1,12 +1,12 @@
 import React, {BaseSyntheticEvent, useState} from 'react'
-import {FormType, RenderVariant} from '../../../types'
+import {TimerFormType, RenderVariant} from '../../../types'
 import {List, Notion, RollDice, SetTimer} from '../../../components'
 import {render} from './utils'
 import {UseFormRegister} from 'react-hook-form'
 import {ContentLayout} from '../ContentLayout/ContentLayout'
 
 type Props = {
-  register: UseFormRegister<FormType>
+  register: UseFormRegister<TimerFormType>
   onTimerSubmit: (e?: BaseSyntheticEvent | undefined) => Promise<void>
 }
 

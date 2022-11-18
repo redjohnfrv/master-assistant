@@ -1,1 +1,1 @@
-export type RenderVariant = 'list' | 'timer' | 'dice' | 'notion'export type FormType = {  timestamp: number}
+export type RenderVariant = 'list' | 'timer' | 'dice' | 'notion'export type TimerFormType = {  timestamp: number}export type ListType = {  name: string  content: string}
