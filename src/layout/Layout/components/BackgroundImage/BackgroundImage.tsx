@@ -6,7 +6,7 @@ import {fromNumber} from '../../../../utils/fromNumber'
 const MIN_BG_NUM = 1
 const MAX_BG_NUM = 6 // max bg-x + 1
 
-export const BackgroundImage = () => {
+export const BackgroundImage = React.memo(() => {
   const getRandomBg = fromNumber.getRandom(MIN_BG_NUM, MAX_BG_NUM)
   const image = images[`bg${getRandomBg}`]
 
@@ -15,7 +15,7 @@ export const BackgroundImage = () => {
       <img src={image} alt="background" />
     </Root>
   )
-}
+})
 
 const Root = styled.div`
   position: absolute;
