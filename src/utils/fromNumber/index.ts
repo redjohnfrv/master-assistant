@@ -1,1 +1,1 @@
-import {getDoubleZeroTime} from './getDoubleZeroTime'import {getDiceValue} from './getDiceValue'export const fromNumber = {  getDoubleZeroTime,  getDiceValue}
+import {getDoubleZeroTime} from './getDoubleZeroTime'import {getDiceValue} from './getDiceValue'import {getRandom} from './getRandom'export const fromNumber = {  getDoubleZeroTime,  getDiceValue,  getRandom}
