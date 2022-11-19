@@ -1,5 +1,7 @@
 import React from 'react'
 import {RenderVariant} from '../../types'
+import styled from 'styled-components'
+import {Block} from '../../layout'
 
 type Props = {
   onClick: (variant: RenderVariant) => void
@@ -9,10 +11,33 @@ export const List = (props: Props) => {
   const {onClick} = props
 
   return (
-    <ul>
-      <li onClick={() => onClick('timer')}>Set Timer</li>
-      <li onClick={() => onClick('dice')}>Dice Roll</li>
-      <li onClick={() => onClick('notion')}>Notion</li>
-    </ul>
+    <Root>
+      <li onClick={() => onClick('timer')}>
+        <Block hovered={true}>Set Timer</Block>
+      </li>
+      <li onClick={() => onClick('dice')}>
+        <Block hovered={true}>Dice Roll</Block>
+      </li>
+      <li onClick={() => onClick('notion')}>
+        <Block hovered={true}>Notion</Block>
+      </li>
+    </Root>
   )
 }
+
+const Root = styled.ul`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 36px;
+  height: 80%;
+  
+  &>li>div {
+    margin: 0 auto;
+  }
+  
+  @media (min-width: 480px) {
+    gap: 12px;
+    height: 50%;
+  }
+`

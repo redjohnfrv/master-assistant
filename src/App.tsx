@@ -1,6 +1,7 @@
 import {useState} from 'react'
 import './assets/font/font.css'
-import {Layout, Screen} from './screen'
+import {Screen} from './screen'
+import {Layout} from './layout'
 import {ViewportProvider} from './providers'
 import {GlobalStyle} from './assets/globalStyles/GlobalStyle'
 import {ThemeProvider} from 'styled-components'
