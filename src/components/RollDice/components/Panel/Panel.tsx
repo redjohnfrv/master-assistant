@@ -5,7 +5,7 @@ type Props = {
   onRoll: () => void
 }
 
-export const Panel = (props: Props) => {
+export const Panel = React.memo((props: Props) => {
   const {onRoll} = props
 
   return (
@@ -13,7 +13,7 @@ export const Panel = (props: Props) => {
       <button onClick={onRoll}>Roll</button>
     </Root>
   )
-}
+})
 
 const Root = styled.div`
   width: 100%;

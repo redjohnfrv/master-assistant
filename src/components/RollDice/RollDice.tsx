@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useCallback, useState} from 'react'
 import styled from 'styled-components'
 import {Field, Panel} from './components'
 import {fromNumber} from '../../utils/fromNumber'
@@ -6,9 +6,9 @@ import {fromNumber} from '../../utils/fromNumber'
 export const RollDice = () => {
   const [throwValue, setThrowValue] = useState<number>(0)
 
-  const onDicesRoll = () => {
+  const onDicesRoll = useCallback(() => {
     setThrowValue(fromNumber.getDiceValue())
-  }
+  }, [])
 
   return (
     <Root>

@@ -11,6 +11,7 @@ type Props = {
 
 export const Field = (props: Props) => {
   const {throwValue} = props
+  console.log('throwValue: ', throwValue)
 
   const [dices, setDices] = useState<number>(throwValue)
 
