@@ -1,22 +1,22 @@
 import React from 'react'
 import styled from 'styled-components'
+import {Block} from '../../../../layout'
+import {respondTo} from '../../../../service/responseTo'
 
-type Props = {
-  onRoll: () => void
-}
-
-export const Panel = React.memo((props: Props) => {
-  const {onRoll} = props
+export const Panel = () => {
 
   return (
     <Root>
-      <button onClick={onRoll}>Roll</button>
+      Here will be a control panel soon...
     </Root>
   )
-})
+}
 
-const Root = styled.div`
+const Root = styled(Block)`
   width: 100%;
-  height: 40%;
-  padding-bottom: 60px;
+  height: max-content;
+
+  ${respondTo.s`
+    width: 60%;
+  `}
 `
