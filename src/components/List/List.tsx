@@ -2,6 +2,7 @@ import React from 'react'
 import {RenderVariant} from '../../types'
 import styled from 'styled-components'
 import {Block} from '../../layout'
+import {respondTo} from '../../service/responseTo'
 
 type Props = {
   onClick: (variant: RenderVariant) => void
@@ -31,13 +32,13 @@ const Root = styled.ul`
   justify-content: center;
   gap: 36px;
   height: 80%;
-  
-  &>li>div {
+
+  & > li > div {
     margin: 0 auto;
   }
-  
-  @media (min-width: 480px) {
+
+  ${respondTo.s`
     gap: 12px;
     height: 50%;
-  }
+  `}
 `
