@@ -23,8 +23,6 @@ export const Field = (props: Props) => {
     )
   }
 
-  console.log('throwValue: ', throwValue)
-
   return (
     <Root $diceAmount={throwValue}>
       {Array.from({length: DICES_MAX_AMOUNT})
