@@ -2,6 +2,7 @@ import React, {BaseSyntheticEvent, useState} from 'react'
 import styled from 'styled-components'
 import {UseFormRegister} from 'react-hook-form'
 import {ListType} from '../../../../types'
+import {Button, Input} from '../../../../ui'
 
 type Props = {
   register: UseFormRegister<ListType>
@@ -18,13 +19,13 @@ export const NotionPanel = (props: Props) => {
 
   return (
     <Root>
-      <button onClick={onAddNewClick}>{isPanelShown ? 'close' : 'Add new'}</button>
+      <Button onClick={onAddNewClick} name={isPanelShown ? 'close' : 'Add new'}/>
 
       {isPanelShown && (
         <form onSubmit={onAddNotion}>
           <Top>
-            <input type="text" {...register('name')} placeholder="title"/>
-            <input type="submit" value="add"/>
+            <Input type="text" {...register('name')} placeholder="title" />
+            <Button type="submit" name="Add" />
           </Top>
 
           <Bottom>

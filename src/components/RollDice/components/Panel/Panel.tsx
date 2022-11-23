@@ -1,9 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
-import {Block} from '../../../../layout'
-import {respondTo} from '../../../../service/responseTo'
 import {UseFormRegister, UseFormResetField} from 'react-hook-form'
+import {respondTo} from '../../../../service/responseTo'
 import {RollDiceFormType} from '../../../../types'
+import {Block} from '../../../../layout'
+import {Input} from '../../../../ui'
 
 type Props = {
   register: UseFormRegister<RollDiceFormType>
@@ -15,7 +16,7 @@ export const Panel = (props: Props) => {
 
   return (
     <Root>
-      <input
+      <Input
         type="tel"
         {...register('dicesValue')}
         maxLength={1}
@@ -31,8 +32,8 @@ const Root = styled(Block)`
   gap: 12px;
   width: 100%;
   height: max-content;
-  
-  &>input {
+
+  & > input {
     width: 20px;
   }
 
