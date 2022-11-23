@@ -1,12 +1,12 @@
 import React, {useCallback, useEffect, useState} from 'react'
-import {useForm} from 'react-hook-form'
 import styled from 'styled-components'
-import {Field, Panel} from './components'
+import {useForm} from 'react-hook-form'
 import {RollDiceFormType} from '../../types'
 import {regexp} from '../../constants'
+import {Field, Panel} from './components'
 
 export const RollDice = () => {
-  const {register, watch, resetField } = useForm<RollDiceFormType>({
+  const {register, watch, resetField} = useForm<RollDiceFormType>({
     defaultValues: {
       dicesValue: 6,
     }
@@ -15,7 +15,7 @@ export const RollDice = () => {
   const [tryNum, setTryNum] = useState<number>(0)
   const dicesValue = watch().dicesValue
   const isDiceValueCorrect = String(dicesValue) === ''
-   || String(dicesValue).match(regexp.numberOfDicesRegEX)
+    || String(dicesValue).match(regexp.numberOfDicesRegEX)
 
   const onDicesRoll = useCallback(() => {
     setTryNum(prev => prev + 1)
@@ -32,12 +32,13 @@ export const RollDice = () => {
       resetField('dicesValue')
       setThrowValue(0)
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dicesValue])
 
   return (
     <Root>
       <Field key={tryNum} throwValue={throwValue} onRoll={onDicesRoll}/>
-      <Panel register={register} resetField={resetField} />
+      <Panel register={register} resetField={resetField}/>
     </Root>
   )
 }
