@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import styled from 'styled-components'
+import {Block} from '../../../../layout'
 
 type Props = {
   name: string
@@ -11,43 +12,46 @@ export const NotionItem = (props: Props) => {
   const {name, content, onDeleteNotion} = props
   const [isContentShown, setIsContentShown] = useState<boolean>(false)
 
-  const onContentShownToggle = () => {
-    setIsContentShown(prev => !prev)
-  }
-
   useEffect(() => {
     const list = document.querySelector<HTMLElement>('.notion-list')
+
     if (list) {
       if (isContentShown) {
         list.style.overflow = 'hidden'
       } else {
-        list.style.overflow = 'scroll'
+        list.style.overflow = 'auto'
       }
     }
 
   }, [isContentShown])
 
   return (
-    <Root>
-      <Title>
-        <h2 onClick={onContentShownToggle}>{name}</h2>
-        <DeleteButton onClick={() => onDeleteNotion(name)}>X</DeleteButton>
-      </Title>
+    <Root hovered={true}>
+      <li>
+        <Title onClick={() => setIsContentShown(true)}>
+          <h2>{name}</h2>
+          <DeleteButton onClick={() => onDeleteNotion(name)}>X</DeleteButton>
+        </Title>
 
-      {isContentShown && (<Content onClick={onContentShownToggle}>{content}</Content>)}
+        {isContentShown && (<Content onClick={() => setIsContentShown(false)}>{content}</Content>)}
+      </li>
     </Root>
   )
 }
 
-const Root = styled.li`
+const Root = styled(Block)`
   display: flex;
   flex-direction: column;
   width: 100%;
   gap: 10px;
+  margin-bottom: 4px;
 `
 
 const Title = styled.div`
   position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
   height: max-content;
 `
@@ -59,14 +63,18 @@ const Content = styled.div`
   width: 100%;
   height: 100%;
   background: white;
+  color: black;
+  z-index: 1;
 `
 
 const DeleteButton = styled.div`
   position: absolute;
-  top: 5px;
-  right: 10px;
+  top: 0;
+  right: 0;
   width: 15px;
   height: 15px;
   font-size: 15px;
-  color: ${({theme}) => theme.colors.system.error}
+  transform: scaleX(1.5);
+  text-shadow: 0 0 10px #FFF;
+  color: ${({theme}) => theme.colors.system.error};
 `

@@ -13,18 +13,21 @@ export const NotionPanel = (props: Props) => {
   const {register, onAddNotion} = props
   const [isPanelShown, setIsPanelShown] = useState<boolean>(false)
 
-  const onAddNewClick = () => {
+  const onAddCloseClick = () => {
     setIsPanelShown(prev => !prev)
   }
 
   return (
     <Root>
-      <Button onClick={onAddNewClick} name={isPanelShown ? 'close' : 'Add new'}/>
+      <StyledShowHideButton onClick={onAddCloseClick} name={isPanelShown ? 'Close' : 'Add new'}/>
 
       {isPanelShown && (
-        <form onSubmit={onAddNotion}>
+        <form onSubmit={() => {
+          onAddNotion().then()
+          onAddCloseClick()
+        }}>
           <Top>
-            <Input type="text" {...register('name')} placeholder="title" />
+            <StyledInput type="text" {...register('name')} placeholder="title" />
             <Button type="submit" name="Add" />
           </Top>
 
@@ -48,14 +51,6 @@ const Top = styled.div`
   gap: 10px;
   width: 100%;
   margin-bottom: 20px;
-
-  & > input {
-    width: 100%;
-  }
-
-  & > button {
-    width: 80px;
-  }
 `
 
 const Bottom = styled.div`
@@ -65,5 +60,27 @@ const Bottom = styled.div`
   & > textarea {
     width: 100%;
     height: 100%;
+    padding: 4px;
+    border: 2px solid ${({theme: {colors}}) => colors.primary[300]};
+    color: ${({theme: {colors}}) => colors.grayscale[400]};
+    outline: none;
+    border-radius: 8px;
+
+    &:focus {
+      border: 2px solid ${({theme: {colors}}) => colors.primary[200]};
+    }
+    
+    ${({theme: {typography}}) => typography.normal16}
   }
+`
+
+const StyledShowHideButton = styled(Button)`
+  width: 100px;
+  height: 40px;
+  padding: 4px 8px;
+  margin-bottom: 24px;
+`
+
+const StyledInput = styled(Input)`
+  width: 100%;
 `

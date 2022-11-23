@@ -14,4 +14,11 @@ export const Button = (props: Props) => {
   )
 }
 
-const Root = styled.button``
+const Root = styled.button`
+  border-radius: 8px;
+  border: 2px solid #FFF;
+  color: #FFF;
+  background: ${({theme: {colors}}) => colors.primary[300]};
+  
+  ${({theme: {typography}}) => typography.normal16}
+`
