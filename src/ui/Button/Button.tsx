@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 type Props = {
   name: string
+  className?: string
 } & ButtonHTMLAttributes<HTMLButtonElement>
 
 export const Button = (props: Props) => {

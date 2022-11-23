@@ -16,13 +16,13 @@ export const Panel = (props: Props) => {
 
   return (
     <Root>
-      <Input
-        type="tel"
+      <StyledInput
+        type="text"
         {...register('dicesValue')}
         maxLength={1}
       />
 
-      <span>number of dices</span>
+      <span>dices</span>
     </Root>
   )
 }
@@ -30,14 +30,16 @@ export const Panel = (props: Props) => {
 const Root = styled(Block)`
   display: flex;
   gap: 12px;
-  width: 100%;
+  width: max-content;
   height: max-content;
-
-  & > input {
-    width: 20px;
-  }
+  align-items: center;
 
   ${respondTo.s`
     width: 60%;
   `}
+`
+
+const StyledInput = styled(Input)`
+  width: 35px;
+  text-align: center;
 `
