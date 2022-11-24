@@ -11,14 +11,14 @@ export const useNotionService = (props: Props) => {
   const {handleSubmit} = props
   const [notionList, setNotionList] = useState<ListType[] | []>([])
 
-  const onAddNotion = handleSubmit((value) => {
+  const onAddNotion = handleSubmit(async (value) => {
     const newListItem = {
       name: value.name,
       content: value.content,
     }
 
     ListObjectService.objList.push(newListItem)
-    ListObjectService.setList()
+    await ListObjectService.setList()
 
     setNotionList(prev => [...prev, newListItem])
   })
@@ -37,7 +37,7 @@ export const useNotionService = (props: Props) => {
 
     await ListObjectService.clearList()
     ListObjectService.objList = [...newList]
-    ListObjectService.setList()
+    await ListObjectService.setList()
     setNotionList(prev => [...newList])
   }
 

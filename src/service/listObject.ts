@@ -28,4 +28,4 @@ class ListObject {
   }
 }
 
-export const ListObjectService = new ListObject([])
+export const ListObjectService = new ListObject(JSON.parse(localStorage.getItem(LIST_NAME)!) || [])
