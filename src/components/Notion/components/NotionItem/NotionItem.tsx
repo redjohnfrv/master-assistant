@@ -6,10 +6,11 @@ type Props = {
   name: string
   content: string
   onDeleteNotion: (name: string) => void
+  className?: string
 }
 
 export const NotionItem = (props: Props) => {
-  const {name, content, onDeleteNotion} = props
+  const {name, content, onDeleteNotion, className} = props
   const [isContentShown, setIsContentShown] = useState<boolean>(false)
 
   useEffect(() => {
@@ -26,7 +27,7 @@ export const NotionItem = (props: Props) => {
   }, [isContentShown])
 
   return (
-    <Root hovered={true}>
+    <Root hovered={true} className={className}>
       <li>
         <Title onClick={() => setIsContentShown(true)}>
           <h2>{name}</h2>
@@ -56,14 +57,13 @@ const Title = styled.div`
   height: max-content;
 `
 
-const Content = styled.div`
+const Content = styled(Block)`
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: white;
-  color: black;
+  color: #FFF;
   z-index: 1;
 `
 

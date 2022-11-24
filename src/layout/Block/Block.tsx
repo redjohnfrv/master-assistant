@@ -6,13 +6,19 @@ type Props = {
   radius?: number
   hovered?: boolean
   className?: string
+  onClick?: () => void
 }
 
 export const Block = (props: Props) => {
-  const {children, radius = 8, hovered = false, className} = props
+  const {children, radius = 8, hovered = false, className, onClick} = props
 
   return (
-    <Root $radius={radius} $hovered={hovered} className={className}>
+    <Root
+      $radius={radius}
+      $hovered={hovered}
+      className={className}
+      onClick={onClick}
+    >
       {children}
     </Root>
   )

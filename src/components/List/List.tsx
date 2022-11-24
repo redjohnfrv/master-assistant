@@ -32,9 +32,15 @@ const Root = styled.ul`
   justify-content: center;
   gap: 36px;
   height: 80%;
+  
+  &>li {
+    width: 100px;
+    margin: 0 auto;
+  }
 
   & > li > div {
-    margin: 0 auto;
+    width: 100%;
+    text-align: center;
   }
 
   ${respondTo.s`
